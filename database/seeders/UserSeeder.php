@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
             ['email' => 'admin@hris.test'],
             [
                 'name' => 'Admin User',
+                'username' => 'admin',
                 'password' => bcrypt('password'),
                 'role' => 'admin',
             ]
@@ -25,8 +26,19 @@ class UserSeeder extends Seeder
             ['email' => 'employee@hris.test'],
             [
                 'name' => 'Employee User',
+                'username' => 'employee',
                 'password' => bcrypt('password'),
                 'role' => 'employee',
+            ]
+        );
+
+        User::query()->updateOrCreate(
+            ['email' => 'hr@hris.test'],
+            [
+                'name' => 'HR Staff',
+                'username' => 'hrstaff',
+                'password' => bcrypt('password'),
+                'role' => 'hr',
             ]
         );
     }
